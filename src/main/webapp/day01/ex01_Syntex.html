@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 
+	JQuery는 JS가 복잡해서 간단하게 사용하기 위해 나온 것이다.
+	JQuery는 $()를 통해 선택하여 JQ메서드를 적용하는 것이다.
+	따라서 JQ메서드는 $()로 만들어진 객체를 포함해서 객체에 사용할 수 있다.
+	
+	1-1. jQuery 라이브러리 다운로드 후 다른 이름으로 저장 : https://jquery.com/download/
+		 3개 중 맨 위는 min버전, 2번째는 개발자모드 이다. 여기서는 min버전 사용
+		 	min버전(축약) : Download the compressed, production jQuery 3.7.1
+			개발자 버전 : Download the uncompressed, development jQuery 3.7.1
+	1-2. <script> 태그의 src 속성에 해당 파일 경로 작성하기
+	<script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+	-->
+	<!--
+	2-1. 다운로드 없이 웹 상에서 제공하는 라이브러리 사용 : CDN
+		해당 사이트에서 <script> 태그 복사 :
+		https://jquery.com/download/ 사이트의 other CDN에서 원하는 제공사이트 선택 ->
+		https://developers.google.com/speed/libraries?hl=ko#jquery
+			**버전이 서로 맞아야하니 잘 확인하기
+	-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		document.write("<p>hello-1</p>")
+	</script>
+	
+	<script type="text/javascript">
+		/*
+		JQ의 실행 순서 : <head> => <body> => JQuery 순이다.
+		JQ 형식-1) <head>태그 안에서 작성하는 방식, <Head>에 작성되어도 맨 마지막에 실행된다.
+		script 태그 내에서 $가 붙으면 JQuery이다.
+		$(document).ready(function() {
+			실행구분(JS 및 JQ로 작성한다)
+		}); 
+		
+		JQ 형식-2) <head>태그 안에서 작성하는 방식
+		$(function() {
+			실행구분(JS 및 JQ로 작성한다)
+		}); 
+		
+		JQ 형식-3) <body>태그에서 사용하려면 <body>태그 맨 아래에 
+		<script> 태그를 따로 만들어서 사용하면 된다.
+		<스크립트>
+		
+			기분 문법
+		
+		</스크립트>
+		
+		기본 문법 :
+			$("selector").action()
+			selector => 선택자(html, css, js에서 사용한 선택자(id, class 등) 그대로 사용한다.)
+			action() => 자바스크립트의 function()과 같음 => 동작(기능)을 의미
+				**action() 함수가 있는 것이 아니라 동작을 시키는 함수가 올 수 있다는 뜻이다.
+		*/
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("<p>hello-2</p>");
+	</script>
+</body>
+</html>

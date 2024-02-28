@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>each : 배열처리</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// each : 배열이나 Object에서 사용
+			// each(function(index, value){실행}) => 배열에 사용
+			// each(function(key, value){실행}) => object에 사용
+			// **여러번 반복할 시 현재 실행 중인 요소를 선택할 때 this를 사용한다.
+			// each문은 value값을 모아서 배열로 반환해준다.
+			$("p").each(function(index) {
+				$(this).attr("id","para-"+index);
+			});
+			$("#btn1").click(function() {
+				// js에서의 글자만 추출 => innerHTML(), innerText(), textContent()
+				// 글자만 추출하는 JQ함수 => text()
+				alert($("#para-0").text())
+			})
+			$("#btn2").click(function() {
+				$("#res").text("Hello JQuery");
+				// append("인자") 는 뒤에 인자를 추가해준다.
+				$("#para-3").append("Hello JQuery");
+				//text("인자") 는 해당 태그 안에 있는 content를 덮어씌운다.(setter)
+				$("#para-4").text("Hello JQuery");
+			})
+		})
+	</script>
+</head>
+<body>
+	<p>이것은 문단-1 태그 입니다.</p>
+	<p>이것은 문단-2 태그 입니다.</p>
+	<p>이것은 문단-3 태그 입니다.</p>
+	<p>이것은 문단-4 태그 입니다.</p>
+	<p>이것은 문단-5 태그 입니다.</p>
+	<hr>
+	<div id="res"></div>
+	<button id="btn1">버튼1</button>
+	<button id="btn2">버튼2</button>
+</body>
+</html>
