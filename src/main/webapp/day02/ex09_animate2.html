@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.box{
+			background-color: #abc;
+			position : absolute;
+			left:50px;
+			width: 90px;
+			height: 90px;
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#right").click(function() {
+				$(".box").animate({
+					"left":"+=50px"
+				},2000)
+			});
+			$("#left").click(function() {
+				$(".box").animate({
+					"left":"-=50px"
+				},2000)
+			});
+		})
+	</script>
+</head>
+<body>
+<button id="left"><<</button>
+<button id="right">>></button>
+	<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			const news = [
+			"'성+인물' PD·작가 '섹스워커→나체주의 결국엔 사람 이야기, 외설적 NO' [EN:인터뷰①] 뉴스엔",
+			"'건국전쟁' 김덕영 감독 '파묘' '항일 악용 아닌 진실 눈 떠달라'[종합] 스타뉴스",
+			"'패스트 라이브즈' 셀린 송 감독 '오스카 수상 못해도 행복..父송능한 감독 자랑스러워해' [팝인터뷰①] 헤럴드POP",
+			"송강, 4월 2일 육군 현역 입대 '공식 행사 無..비공개 입소'[전문] 헤럴드POP",
+			"'밤피꽃' 이기우 '20년만 첫 사극..키 커서 못할 줄 알았죠' [인터뷰①] 스타뉴스",
+			"벤·황정음→율희·최민환, 연말연초 연예계 잇따른 파경 소식 '충격' [POP이슈] 헤럴드POP"
+			];
+			let index=0;
+			setInterval(() => {
+				$("#mydiv").text(news[index++]);
+				if (index==news.length) {
+					index=0;
+				};
+			}, 2000);
+		});
+	</script>
+	
+</head>
+<body>
+	<div id="mydiv"></div>
+</body>
+</html>

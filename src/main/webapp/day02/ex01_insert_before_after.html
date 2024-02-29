@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// :eq(인덱스 번호) = 해당 인덱스 번호의 태그 선택
+			// :eq는 형제 중이 아닌 해당 태그 전체를 선택하고 그들의 인덱스 번호이다.
+			$("#wrap p:eq(1)").css("backgroundColor","skyblue");
+			// .after(인자), .before(인자) => 선택자 기준 앞, 뒤에 인자로 들어온 content를 추가 시키는 함수
+			// 인자로 태그, 텍스트, obj 등 넣을 수 있음
+			$("#wrap p:eq(1)").after("<p>After</p>");
+			$("#wrap p:eq(1)").before("<p>before</p>");
+			// .append(인자), .prepend(인자) => 선택자 안쪽의 하위 요소로 맨 앞,뒤에 인자로 들어온 content를 추가시키는 함수
+			// 인자로 태그, 텍스트, obj 등 넣을 수 있음
+			$("#wrap").prepend("<p>prepend</p>");
+			$("#wrap").append("<p>append</p>");
+		})
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<p>내용1</p>
+		<p>내용2</p>
+		<p>내용3</p>
+	</div>
+</body>
+</html>

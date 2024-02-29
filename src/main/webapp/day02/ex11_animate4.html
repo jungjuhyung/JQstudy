@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			let position = 0;
+			let timer;
+				// setInterval(function, 지정시간) => 지정한 시간마다 콜백함수를 반복적으로 실행
+			$("#btn").click(function() {
+				timer = setInterval(() => {
+				position += 5;
+				$("img").css({"marginLeft": position, "marginTop":position})
+				}, 50);
+			});
+			$("img").click(function() {
+				// clearInterval() => setInterval을 종료시키는 함수
+				clearInterval(timer);
+			});
+		});
+	</script>
+</head>
+<body>
+<button id="btn">이동</button>
+	<div>
+		<img src="../jqimages/img03.jpg">
+	</div>
+</body>
+</html>

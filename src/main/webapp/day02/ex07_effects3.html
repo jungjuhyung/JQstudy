@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		$(function() {
+			// slideUp([지연시간], [작업 완료 후 실행할 함수])
+			// slideDown([지연시간], [작업 완료 후 실행할 함수])
+			// 해당 블록이 위로 올라가거나 내려가면서 사라지고 나타나는 효과
+			// 이미지의 경우 너비나 높이 같이 영역이 지정되야 적용된다. 적용 안할 시 hide, show와 같은 효과로 나온다.
+			
+			// slideToggle([지연시간], [작업 완료 후 실행할 함수])
+			// 토글은 누를때마다 hide, show가 번갈아서 실행된다.
+			// 지연시간 지정 : 디폴트값 400, 200~600 가능, 밀리초단위
+			$("#btn1").click(function() {
+				$("#img").slideDown();
+			});
+			$("#btn2").click(function() {
+				$("#img").slideUp();
+			});
+			$("#btn3").click(function() {
+				$("#img").slideToggle();
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<button id="btn1">감추기</button>
+	<button id="btn2">보이기</button>
+	<button id="btn3">토글(감추기/보이기)</button>
+	<hr>
+	<img id="img" src="../jqimages/img01.jpg" style="width:460px">
+	<hr>
+	<p>안녕하세요</p>
+</body>
+</html>
