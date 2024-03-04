@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+    	table {
+       		width: 600px; margin-top: 50px; border-collapse: collapse;
+    	}
+    	table, th, td {
+    		border: 1px solid green; text-align: center;
+    	}
+	</style>
+	<script type="text/javascript">
+		/*
+		AJax 사용법
+		$.ajax({
+			url 	 => "읽어올 서버 페이지의 위치"
+			method 	 => get, post 방식 지정 (디폴트값은 get이다.)
+			data 	 => 요청할 때(서버 페이지에 갈 때) 전달되는 파라미터(데이터)
+			dataType => 응답 결과의 데이터 형태 (xml, html, text, json)
+			success	 => 성공했을 때 실행 동작, 익명 함수가 들어간다.
+			error 	 => 실패 했을 때 동작, 익명 함수가 들어간다.
+		});
+		*/
+		$(function() {
+			$("#btn").click(function() {
+				$("#result").empty();
+				$.ajax({
+					url:"data01.xml",
+					method:"get",
+					dataType:"xml",
+					success: function(data) {
+						let table = "<table>"
+						table += "<thead>"
+						table += "<tr><th>이름</th><th>범위</th></tr>"
+						table += "</thead>"
+						table += "<tbody>"
+						$(data).find("product").each(function() {
+							let name = $(this).attr("name")
+							let count = $(this).attr("count")
+							let pro = $(this).text();
+							table += "<tr>"
+							table += "<td>"+name+"</td>"
+							table += "<td>"+count+"</td>"
+							table += "<td>"+pro+"</td>"
+							table += "</tr>"
+						});
+						table += "</tbody></table>"
+						$("#result").append(table);
+					},
+					error: function() {
+						alert("가져오기 실패")
+					}
+				});
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="btn">가져오기</div>
+	<div id="result"></div>
+</body>
+</html>

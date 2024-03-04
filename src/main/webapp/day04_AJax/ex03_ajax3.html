@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+    	table {
+       		width: 600px; margin-top: 50px; border-collapse: collapse;
+    	}
+    	table, th, td {
+    		border: 1px solid green; text-align: center;
+    	}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#btn").click(function() {
+				$("#result").empty();
+				$.ajax({
+					url:"data03.txt",
+					method:"get",
+					dataType:"text",
+					success: function(data) {
+						let table = "<table>"
+						table += "<thead>"
+						table += "<tr><th>번호</th><th>이름</th><th>나이</th><th>주소</th></tr>"
+						table += "</thead>"
+						table += "<tbody>"
+						
+						// text는 결과가 문자열로 나온다.
+						// console.log("data : ",data);
+						const rows = data.split("/")
+						for ( let k in rows) {
+							table += "<tr>"
+							const cols = rows[k].split(",");
+							for ( let i in cols) {
+								table += "<td>"+cols[i]+"</td>";
+							};
+							table += "</tr>"
+						};
+						table += "</tbody></table>"
+						$("#result").append(table);
+					},
+					error: function() {
+						alert("가져오기 실패")
+					}
+				});
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="btn">가져오기</div>
+	<div id="result"></div>
+</body>
+</html>

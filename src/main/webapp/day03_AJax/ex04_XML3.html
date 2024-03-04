@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+    	table {
+       		width: 600px; margin-top: 50px; border-collapse: collapse;
+    	}
+    	table, th, td {
+    		border: 1px solid green; text-align: center;
+    	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btn").click(function() {
+				$("#result").empty();
+				let table = "<table>"
+				table += "<thead>"
+				table += "<tr><th>이름</th><th>갯수</th><th>기업</th></tr>"
+				table += "</thead>"
+				table += "<tbody>"
+				$.get("data03.xml", function(data) {
+					$(data).find("product").each(function() {
+						let name = $(this).attr("name")
+						let count = $(this).attr("count")
+						let pro = $(this).text();
+						table += "<tr>"
+						table += "<td>"+name+"</td>"
+						table += "<td>"+count+"</td>"
+						table += "<td>"+pro+"</td>"
+						table += "</tr>"
+					});
+				table += "</tbody></table>"
+				$("#result").append(table);
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="btn">가져오기</div>
+	<div id="result"></div>
+</body>
+</html>

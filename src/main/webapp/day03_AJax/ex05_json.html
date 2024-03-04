@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+    	table {
+       		width: 600px; margin-top: 50px; border-collapse: collapse;
+    	}
+    	table, th, td {
+    		border: 1px solid green; text-align: center;
+    	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btn").click(function() {
+				$("#result").empty();
+				let table = "<table>"
+				table += "<thead>"
+				table += "<tr><th>이름</th><th>범위</th></tr>"
+				table += "</thead>"
+				table += "<tbody>"
+				$.getJSON("data04.js", function(data) {
+					// json은 Array로 값을 넘겨준다.
+					// console.log("data: ", data)
+					
+					$.each(data, function(idx, v) {
+						// 여기서는 js파일을 배열로 받았기 때문에
+						// index와 value를 인자로 받는다.
+						// console.log("key : ", k);
+						// console.log("val : ", v);
+						table += "<tr>";
+						table += "<td>"+v["name"]+"</td>";
+						table += "<td>"+v["scope"]+"</td>";
+						table += "</tr>";
+					})
+					table += "</tbody></table>"
+					$("#result").append(table);
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="btn">가져오기</div>
+	<div id="result"></div>
+</body>
+</html>
